@@ -1,0 +1,73 @@
+.card-group{
+    width: 800px;
+    margin: auto;
+    margin-top: 100px;
+    background: transparent;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-group>.creatCard{
+    margin-right: 30px;
+    align-content: center;
+    border-radius: 30px;
+}
+
+.uploadCard{
+    margin-right: 30px;
+    align-content: center;
+    border-radius: 30px;
+}
+
+.cardBody{
+    text-align: center;
+    font-size: 6px;
+    margin-top: 12px;
+    margin-bottom: 15px;
+    width: 320px;
+    max-height: 150px;
+}
+
+.button-create{
+    width: 200px;
+    background-color: #2eaa2e;
+    border-color: #2eaa2e;
+    
+}
+
+.text-create{
+    padding: 10px;
+    margin-bottom: 30px;
+    font-size: 13px;
+}
+
+.CreateBucket-modal{
+    align-self: center;
+    border-radius: 30px;
+}
+
+.footerr{
+    text-align: center;
+    align-content: center;
+    height: 50px;
+}
+
+.headerr{
+    height: 50px;
+}
+
+.create-modal-body{
+    background: white; /* fallback for old browsers */
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;     
+}
+.modal-body{
+    padding :0;
+}
+
+#close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}

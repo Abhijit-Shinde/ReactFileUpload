@@ -1,0 +1,38 @@
+
+.card-body{
+    text-align: center;
+    width: 600px;
+    align-self: center;
+    padding: 30px auto;
+}
+
+.file{
+    height: 180px;
+}
+
+.Progbar{
+    padding: 15px;
+}
+
+.uploadStatus{
+    font-size: 14px;
+}
+
+.card{
+    width: 650px;
+    margin: 0 auto;
+    border: none !important;
+}
+
+.card-title{
+    margin-bottom: 40px;
+}
+
+.input-group-text{
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.form-control{
+    border-color: #f8f9fa;
+}

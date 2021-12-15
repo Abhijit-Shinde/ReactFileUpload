@@ -1,24 +1,62 @@
-import logo from './logo.svg';
+import React,{ useState } from 'react';
 import './App.css';
+import logo from "./images/Logo.png";
+import Login from "./Login/Login";
+import Home from './Home/Home';
 
 function App() {
+  const adminUser={
+    email:"admin@phynd.com",
+    password:"phynd"
+  }
+
+  const [user,setUser]=useState({email:""});
+  const [error,setError]=useState("");
+
+  const Log=details=>{
+    if(details.email===adminUser.email && details.password===adminUser.password){
+      setUser({
+        email:details.email
+      });
+    }else if(details.email!=="" && details.password!==""){
+      if(details.email!==adminUser.email){
+        setError("Email does not match");
+      }
+      else{
+        setError("Password does not match");
+      }
+    }
+    else{
+      setError("Fields cannot be empty");
+    }
+  }
+  const Logout=()=>{
+    setUser({email:""});
+    setError("");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      {/* <Home/> */}
+      {(user.email!=="")?(
+        <div>
+          <div>
+            <div class="topnav">
+              <div className="navLogo-container">
+                <img src={logo} className="navLogo" alt="Italian Trulli"/>
+              </div>
+
+            <a href="#about" onClick={Logout}>Logout</a>
+            </div>
+          </div>
+          {/* <Upload2/> */}
+          <Home/>
+        </div>
+      ):(
+        <Login Login={Log} error={error}/>
+      )}
     </div>
+
   );
 }
 
