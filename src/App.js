@@ -5,6 +5,7 @@ import Login from "./Login/Login";
 import Home from './Home/Home';
 
 function App() {
+  
   const adminUser={
     email:"admin@phynd.com",
     password:"phynd"
@@ -30,6 +31,7 @@ function App() {
       setError("Fields cannot be empty");
     }
   }
+
   const Logout=()=>{
     setUser({email:""});
     setError("");
@@ -37,7 +39,6 @@ function App() {
 
   return (
     <div >
-      {/* <Home/> */}
       {(user.email!=="")?(
         <div>
           <div>
@@ -46,10 +47,9 @@ function App() {
                 <img src={logo} className="navLogo" alt="Italian Trulli"/>
               </div>
 
-            <a href="#about" onClick={Logout}>Logout</a>
+              <a href="#about" onClick={Logout}>Logout</a>
             </div>
           </div>
-          {/* <Upload2/> */}
           <Home/>
         </div>
       ):(

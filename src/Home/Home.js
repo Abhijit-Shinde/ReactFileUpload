@@ -23,13 +23,15 @@ const Home = () =>{
                     <Card style={{ width: '18rem' }} className="creatCard">
                         <div class="card-header">
                             <b>Create Bucket</b>
-                        </div>    
+                        </div>   
+
                         <Card.Body className="cardBody">
                             <Card.Text className="text-create">
                             Create your AWS S3 Bucket to upload your file on it
                             </Card.Text>
                             <Button variant="primary" onClick={handleShow2} className="button-create" >Create Bucket</Button>
                         </Card.Body>
+
                         <div class="card-footer text-muted">
                             .
                         </div>        
@@ -39,12 +41,14 @@ const Home = () =>{
                         <div class="card-header">
                             <b>Upload File</b>
                         </div>  
+
                         <Card.Body className="cardBody">
                             <Card.Text className="text-create">
                             Simple multi-part system to upload CSV Files on AWS S3 bucket
                             </Card.Text>
                             <Button variant="primary" onClick={handleShow} className="button-create" >Upload File</Button>
                         </Card.Body>
+                        
                         <div class="card-footer text-muted">
                             .
                         </div> 

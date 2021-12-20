@@ -32,6 +32,7 @@ function Create(){
                     <Card.Title className="create-title">
                         <h6><b>Create Bucket</b></h6>
                     </Card.Title>
+
                     <Card.Text>
                         <InputGroup className="mb-3">
                             <FormControl
@@ -43,6 +44,7 @@ function Create(){
                                 required
                             />
                         </InputGroup>
+                        
                         <div className='mb-3'>
                             <span style={{ color: "red"}}>{bucketName?apiResponse:inputError}</span>
                         </div>
@@ -51,7 +53,7 @@ function Create(){
                             Create
                         </Button>
 
-                        </Card.Text>
+                    </Card.Text>
                             
                 </Card.Body>
             </Card>

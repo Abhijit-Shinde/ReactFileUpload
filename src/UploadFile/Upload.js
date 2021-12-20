@@ -33,12 +33,11 @@ class FileUploadComponent extends Component {
         formData.append('file', this.state.selectedFile);
         
         this.setState({emptyFileErr:"",emptyBucErr:""})
-        // if(this.state.selectedFile!=null){
           
            axios.post("https://localhost:5001/s3/AddFile?bucketName="+this.state.bucketName, formData, {
             onUploadProgress: progressEvent => {
               this.setState({
-                progress: ((70* progressEvent.loaded) / progressEvent.total*100)
+                progress: (progressEvent.loaded / progressEvent.total*99)
               })
             }
           })
@@ -52,7 +51,6 @@ class FileUploadComponent extends Component {
               this.setState({progress:0});
               this.setState({fileUploadedSucessfully:false});
             })
-          // }
     }
     
     checkValidation=(e)=>{
@@ -102,9 +100,12 @@ class FileUploadComponent extends Component {
     render() {
         return (
             <div className="uploadContainer" >
+
               <div class="card text-center">
+
                   <div class="card-body" >
                     <h6 class="card-title"><b>Upload File</b></h6>
+
                     <InputGroup className="mb-5">
                       <InputGroup.Text id="basic-addon1">Bucket Name</InputGroup.Text>
                       <FormControl
@@ -113,6 +114,7 @@ class FileUploadComponent extends Component {
                         value={this.state.bucketName}
                       />
                     </InputGroup>
+
                     <div class="mb-3">
                         <span style={{ color: "red"}}>{this.state.emptyBucErr}</span>
                     </div>
@@ -130,9 +132,15 @@ class FileUploadComponent extends Component {
                     </div>
                     
                   </div>
-                  <div>{this.state.fileUploadedSucessfully===false?<span style={{ color: "red"}} >{this.state.status}</span>:this.fileData()}</div>
+
+                  <div>
+                    {this.state.fileUploadedSucessfully===false?<span style={{ color: "red"}} >{this.state.status}</span>:this.fileData()}
+                  </div>
+
                   <br/>
+
               </div> 
+              
             </div>
         );
     }
