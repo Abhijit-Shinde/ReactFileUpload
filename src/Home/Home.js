@@ -5,6 +5,8 @@ import '../bootstrap/css/bootstrap.min.css';
 import '../../node_modules/react-bootstrap-icons/dist/icons/x-circle.js'
 import Create from '../CreateBucket/Create';
 import Upload from '../UploadFile/Upload';
+import Bucket from "./../images/createBucket.png"
+import Cloud from "./../images/images.png"
 
 const Home = () =>{
 
@@ -24,6 +26,9 @@ const Home = () =>{
                         <div class="card-header">
                             <b>Create Bucket</b>
                         </div>   
+                        <div class="card-img">
+                        <Card.Img variant="top" src={Bucket} className="img-bucket"/>
+                        </div>
 
                         <Card.Body className="cardBody">
                             <Card.Text className="text-create">
@@ -41,6 +46,9 @@ const Home = () =>{
                         <div class="card-header">
                             <b>Upload File</b>
                         </div>  
+                        <div class="card-img">
+                        <Card.Img variant="top" src={Cloud} className="img-bucket"/>
+                        </div>
 
                         <Card.Body className="cardBody">
                             <Card.Text className="text-create">

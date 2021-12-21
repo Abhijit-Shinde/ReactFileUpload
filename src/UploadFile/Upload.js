@@ -37,7 +37,7 @@ class FileUploadComponent extends Component {
            axios.post("https://localhost:5001/s3/AddFile?bucketName="+this.state.bucketName, formData, {
             onUploadProgress: progressEvent => {
               this.setState({
-                progress: (progressEvent.loaded / progressEvent.total*99)
+                progress: (progressEvent.loaded / progressEvent.total*70)
               })
             }
           })
