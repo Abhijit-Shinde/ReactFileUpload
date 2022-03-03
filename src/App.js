@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
 import './App.css';
-import logo from "./images/Logo.png";
-import Login from "./Login/Login";
-import Home from './Home/Home';
+import logo from "../src/images/Logo.png";
+import Login from "./Components/Login/Login";
+import Home from './Components/Home/Home';
 
 function App() {
   

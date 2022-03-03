@@ -1,7 +1,8 @@
 import React,{useState} from "react";
-import logo from "../images/Logo.png";
+import logo from "../../images/Logo.png";
 import './Login.css';
-import '../bootstrap/css/bootstrap.min.css';
+// import '../../bootstrap/css/bootstrap.min.css';
+import '../../Services/bootstrap/css/bootstrap.min.css';
 
 function Login({Login,error}){
     const[details,setDetails]=useState({email:"",password:""});

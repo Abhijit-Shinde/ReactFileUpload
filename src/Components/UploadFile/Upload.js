@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {ProgressBar, Button, InputGroup, FormControl} from 'react-bootstrap'
 import "./Upload.css"
-import '../bootstrap/css/bootstrap.min.css';
+// import '../../bootstrap/css/bootstrap.min.css';
+import '../../Services/bootstrap/css/bootstrap.min.css';
 
 
 class FileUploadComponent extends Component {

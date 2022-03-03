@@ -1,12 +1,13 @@
 import React,{useState} from "react";
 import './Home.css';
 import{Card, Button, CardGroup, Modal} from 'react-bootstrap'
-import '../bootstrap/css/bootstrap.min.css';
-import '../../node_modules/react-bootstrap-icons/dist/icons/x-circle.js'
+import '../../Services/bootstrap/css/bootstrap.min.css';
+// import '../../node_modules/react-bootstrap-icons/dist/icons/x-circle.js'
+import '../../../node_modules/react-bootstrap-icons/dist/icons/x-circle'
 import Create from '../CreateBucket/Create';
 import Upload from '../UploadFile/Upload';
-import Bucket from "./../images/createBucket.png"
-import Cloud from "./../images/images.png"
+import Bucket from "../../images/createBucket.png"
+import Cloud from "../../images/images.png"
 
 const Home = () =>{
 
