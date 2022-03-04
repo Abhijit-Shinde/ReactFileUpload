@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import './Create.css';
 import axios from 'axios';
 import{Card, Button,InputGroup, FormControl} from 'react-bootstrap'
+import {createBucketApi} from '../../api/index'
 
 function Create(){
 
@@ -10,10 +11,11 @@ function Create(){
     const [inputError, setInputError] = useState(null);
 
     const createHandler = (e) =>{
-        axios.post("https://localhost:5001/s3/Create?bucketName="+bucketName)
-            .then((response) => { 
-            setApiResponse(response.data.message)
+
+        createBucketApi(bucketName).then((response) => {
+                setApiResponse(response.data.message)
             })
+        
     }
 
     const checkValidation = () =>{

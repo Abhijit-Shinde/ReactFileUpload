@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {ProgressBar, Button, InputGroup, FormControl} from 'react-bootstrap'
 import "./Upload.css"
-// import '../../bootstrap/css/bootstrap.min.css';
 import '../../Services/bootstrap/css/bootstrap.min.css';
+import {uploadFile} from '../../api/index'
+import { EMPTYBUCK, EMPTYFILE } from '../../constants';
+
 
 
 class FileUploadComponent extends Component {
@@ -35,17 +37,32 @@ class FileUploadComponent extends Component {
         
         this.setState({emptyFileErr:"",emptyBucErr:""})
           
-           axios.post("https://localhost:5001/s3/AddFile?bucketName="+this.state.bucketName, formData, {
-            onUploadProgress: progressEvent => {
-              this.setState({
-                progress: (progressEvent.loaded / progressEvent.total*70)
-              })
+          //  axios.post("https://localhost:5001/s3/AddFile?bucketName="+this.state.bucketName, formData, {
+          //   onUploadProgress: progressEvent => {
+          //     this.setState({
+          //       progress: (progressEvent.loaded / progressEvent.total*70)
+          //     })
+          //   }
+          // })
+          uploadFile(this.state.bucketName, formData, progressEvent => {
+                this.setState({
+                  progress: (progressEvent.loaded / progressEvent.total*100)
+                })
+              }
+          )
+          .then((response) => { 
+            console.log("from upload-",response);
+            if(response.data.status!=200){
+              this.setState({status:`Error - ${response.data.message}`});
+              this.setState({fileUploadedSucessfully:false});
+              this.setState({progress:0});
             }
-          })
-            .then((response) => { 
-              this.setState({status:`upload success ${response.data}`});
+            else{
+              this.setState({status:`upload success ${response.data.message}`});
               this.setState({fileUploadedSucessfully:true});
               this.setState({progress:100});
+            }
+              
             })
             .catch((error) => { 
               this.setState({status:`${error}`});
@@ -57,11 +74,11 @@ class FileUploadComponent extends Component {
     checkValidation=(e)=>{
       let formValid = true;
       if(this.state.bucketName==null || this.state.bucketName===''){
-        this.setState({emptyBucErr:"Please Enter Bucket Name."})
+        this.setState({emptyBucErr:EMPTYBUCK})
         formValid=false;
       }
       if(this.state.selectedFile==null || this.state.selectedFile===''){
-        this.setState({emptyFileErr:"Please Select a File."})
+        this.setState({emptyFileErr:EMPTYFILE})
         formValid=false;
       }
       if(formValid){
